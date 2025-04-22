@@ -32,7 +32,6 @@ const services = [
 ];
 
 function Home() {
-  const heroHeight = { xs: 400, sm: 500, md: 600 }; // Define height for reuse
 
   return (
     <Box sx={{
@@ -46,8 +45,8 @@ function Home() {
         sx={{
           position: 'relative',
           overflow: 'hidden',
-          mt: '120px',
-          height: heroHeight,
+          mt: '64px',
+          minHeight: '100vh'
         }}
       >
         {/* Slider */}
@@ -66,7 +65,7 @@ function Home() {
               <Box
                 sx={{
                   position: 'relative', // Needed for the ::before pseudo-element
-                  height: heroHeight,
+                  height: '100vh',
                   backgroundImage: `url(${image})`,
                   backgroundSize: 'cover',
                   backgroundPosition: 'center',
@@ -100,10 +99,11 @@ function Home() {
             bottom: 0,
             display: 'flex',
             alignItems: 'center',
-            justifyContent: 'center',
+            flexDirection: 'column',
+            justifyContent: 'space-around',
             zIndex: 10, // Keep overlay above slider image and its ::before overlay
             color: 'white',
-            textAlign: 'center',
+            textAlign: 'center',           
             px: { xs: 2, md: 4 },
           }}
         >
@@ -297,9 +297,8 @@ function Home() {
           </Grid>
           <Box sx={{ mt: 6, textAlign:'center' }}>
             <iframe 
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3940.0269459892807!2d38.78152667415822!3d9.014313489233773!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x164b85d6a1b0445d%3A0x8edaa289a4e6a984!2sBole%20Medhane%20Alem%20Church!5e0!3m2!1sen!2set!4v1699535830575!5m2!1sen!2set" 
-            width="600" 
-            height="450" 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3940.0269459892807!2d38.78152667415822!3d9.014313489233773!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x164b85d6a1b0445d%3A0x8edaa289a4e6a984!2sBole%20Medhane%20Alem%20Church!5e0!3m2!1sen!2set!4v1699535830575!5m2!1sen!2set"
+            width="100%"
             style={{border:0}} 
             allowfullscreen="" 
             loading="lazy" 
