@@ -12,17 +12,17 @@ import Contact from './pages/Contact';
 import ScrollToTop from './components/ScrollToTop'; // Ensure this exists
 
 function App() {
+  
   const location = useLocation(); // Get the current route path
 
   return (
     <>
       <ScrollToTop /> {/* Ensures the page scrolls to the top on navigation */}
-      <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+      <Box sx={{ display: 'flex', flexDirection: 'column'}}>
         <Navbar />
         <Box
           component="main"
-          sx={{
-            flexGrow: 1,
+          sx={{           
             mt: location.pathname === '/' ? '0px' : '120px', // No gap for Home, default for others
           }}
         >
@@ -35,8 +35,8 @@ function App() {
             <Route path="/contact" element={<Contact />} />
           </Routes>
         </Box>
-        <Footer />
       </Box>
+      <Footer />
     </>
   );
 }

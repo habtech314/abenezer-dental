@@ -295,6 +295,16 @@ function Home() {
               </MotionBox>
             </Grid>
           </Grid>
+          <Box sx={{ mt: 6, textAlign:'center' }}>
+            <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3940.0269459892807!2d38.78152667415822!3d9.014313489233773!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x164b85d6a1b0445d%3A0x8edaa289a4e6a984!2sBole%20Medhane%20Alem%20Church!5e0!3m2!1sen!2set!4v1699535830575!5m2!1sen!2set" 
+            width="600" 
+            height="450" 
+            style={{border:0}} 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </Box>
         </Container>
       </Box>
     </Box>

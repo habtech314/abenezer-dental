@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import React, { useState } from 'react'
+
 import {
   Box,
   Container,
@@ -11,35 +12,36 @@ import {
   Alert,
   Snackbar
 } from '@mui/material';
+
 import { motion } from 'framer-motion';
+
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import PhoneIcon from '@mui/icons-material/Phone';
 import EmailIcon from '@mui/icons-material/Email';
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
 
-const MotionBox = motion(Box);
 
+const MotionBox = motion(Box);
 function Contact() {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    message: ''
-  });
-
+      name: '',
+      email: '',
+      phone: '',
+      message: ''
+    });
   const [snackbar, setSnackbar] = useState({
-    open: false,
-    message: '',
-    severity: 'success'
-  });
-
+      open: false,
+      message: '',
+      severity: 'success'
+    });
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData(prevState => ({
       ...prevState,
       [name]: value
     }));
-  };
+  }
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -56,16 +58,16 @@ function Contact() {
       phone: '',
       message: ''
     });
-  };
+  }
 
   const handleCloseSnackbar = () => {
     setSnackbar(prev => ({ ...prev, open: false }));
-  };
+  }
 
   return (
     <Box sx={{ py: { xs: 6, md: 8 } }}>
       <Container maxWidth="lg">
-        <Grid container spacing={4}>
+      <Grid container spacing={4}>
           <Grid item xs={12} md={6}>
             <MotionBox
               initial={{ opacity: 0, x: -20 }}
@@ -84,7 +86,6 @@ function Contact() {
               <Typography variant="h5" color="text.secondary" paragraph>
                 We're here to help! Reach out to us with any questions or to schedule an appointment.
               </Typography>
-
               <Card sx={{ mb: 4 }}>
                 <CardContent>
                   <Grid container spacing={3}>
@@ -131,38 +132,6 @@ function Contact() {
                   </Grid>
                 </CardContent>
               </Card>
-
-              {/* Google Maps Embed */}
-                         <Box
-              sx={{
-                width: '100%',
-                height: 300,
-                border: '1px solid',
-                borderColor: 'divider',
-                borderRadius: 1,
-                overflow: 'hidden',
-              }}
-            >
-              <iframe
-                src="https://www.google.com/maps/place/Abenezer+Specility+Dental+Clinic%2F+%E1%8A%A0%E1%89%A4%E1%8A%94%E1%8B%98%E1%88%AD+%E1%88%8D%E1%8B%A9+%E1%8B%A8%E1%8C%A5%E1%88%AD%E1%88%B5+%E1%88%85%E1%8A%AD%E1%88%9D%E1%8A%93/@8.8768486,38.8067311,16z/data=!4m20!1m13!4m12!1m4!2m2!1d41.8412302!2d9.6190231!4e1!1m6!1m2!1s0x164b792238426e3d:0x20fe2652d065fe19!2zQWJlbmV6ZXIgU3BlY2lsaXR5IERlbnRhbCBDbGluaWMvIOGKoOGJpOGKlOGLmOGIrSDhiI3hi6kg4Yuo4Yyl4Yit4Yi1IOGIheGKreGIneGKkywgVHVsdWRpbXR1IHRvIEFsZW1iYW5rIHJvYWQsIEFkZGlzIEFiYWJh!2m2!1d38.8149441!2d8.8728884!3m5!1s0x164b792238426e3d:0x20fe2652d065fe19!8m2!3d8.8729523!4d38.8149242!16s%2Fg%2F11s0jj6mvh?entry=ttu&g_ep=EgoyMDI1MDQxNi4xIKXMDSoASAFQAw%3D%3D"
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                allowFullScreen=""
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                title="Abenezer Dental Location"
-              />
-            </Box>
-            </MotionBox>
-          </Grid>
-
-          <Grid item xs={12} md={6}>
-            <MotionBox
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-            >
               <Card>
                 <CardContent sx={{ p: 4 }}>
                   <Typography variant="h4" gutterBottom>
@@ -171,7 +140,7 @@ function Contact() {
                   <Typography variant="body1" color="text.secondary" paragraph>
                     Fill out the form below and we'll get back to you as soon as possible.
                   </Typography>
-
+        
                   <form onSubmit={handleSubmit}>
                     <Grid container spacing={3}>
                       <Grid item xs={12}>
@@ -230,14 +199,15 @@ function Contact() {
                     </Grid>
                   </form>
                 </CardContent>
+                <Box sx={{ mt: 4, width: '100%' }}>
+                  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3940.9036092376317!2d38.81240187415736!3d8.873136291456388!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x164b8593b557252f%3A0x510b564290a55c1c!2sAddis%20Abeba%201000!5e0!3m2!1sen!2set!4v1711430545936!5m2!1sen!2set" width="600" height="450" style={{ border: 0, width: '100%' }} allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </Box>
               </Card>
             </MotionBox>
           </Grid>
         </Grid>
-
         <Snackbar
-          open={snackbar.open}
-          autoHideDuration={6000}
+          open={snackbar.open} autoHideDuration={6000}
           onClose={handleCloseSnackbar}
           anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
         >
@@ -251,7 +221,7 @@ function Contact() {
         </Snackbar>
       </Container>
     </Box>
-  );
+  )
 }
 
 export default Contact;
